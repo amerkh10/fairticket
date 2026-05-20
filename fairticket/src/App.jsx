@@ -51,7 +51,7 @@ export default function App() {
             FAIR<span className="text-orange-500">TICKET</span>
           </span>
           <span className="mx-3">·</span>AI-Powered Anti-Scalping Platform
-          <span className="mx-3">·</span>Demo Prototype v1.0
+          <span className="mx-3">·</span>by ameur khadraoui
         </footer>
       </div>
     </ToastContext.Provider>
