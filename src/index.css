@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Barlow', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gray-950 text-gray-100;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-full;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #f97316 !important;
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
+  }
+}
+
+@layer components {
+  .font-condensed {
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  /* Pitch stripe background texture */
+  .pitch-bg {
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.015) 0px,
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 1px,
+      transparent 48px
+    );
+  }
+
+  /* Orange glow for interactive cards */
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.25);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+  }
+
+  /* Nav active state */
+  .nav-active {
+    @apply text-orange-500 border-b-2 border-orange-500;
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-gray-900 border border-gray-800 rounded-2xl;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply bg-orange-500 hover:bg-orange-400 disabled:bg-gray-700 disabled:text-gray-500
+           text-black font-black uppercase tracking-wide font-condensed
+           px-6 py-3 rounded-xl transition-all duration-200
+           flex items-center justify-center gap-2;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply bg-gray-800 hover:bg-gray-700 text-white font-bold
+           px-6 py-3 rounded-xl transition-all duration-200;
+  }
+
+  /* Form input */
+  .input {
+    @apply w-full bg-gray-800 border border-gray-700 rounded-xl
+           px-4 py-3 text-white placeholder-gray-600 text-sm
+           transition-colors duration-150;
+  }
+
+  /* Form label */
+  .label {
+    @apply text-xs text-gray-400 uppercase tracking-widest block mb-1.5;
+  }
+
+  /* Risk badge colors */
+  .risk-critical {
+    @apply text-red-400 bg-red-900/40 border border-red-900;
+  }
+  .risk-high {
+    @apply text-orange-400 bg-orange-900/30 border border-orange-900;
+  }
+  .risk-medium {
+    @apply text-yellow-400 bg-yellow-900/20 border border-yellow-900;
+  }
+}
+
+@layer utilities {
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.35s ease both;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide-up {
+    animation: slideUp 0.4s ease both;
+  }
+
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(1.5); }
+  }
+  .animate-pulse-dot {
+    animation: pulseDot 1.5s infinite;
+  }
+
+  /* Staggered delay helpers */
+  .delay-0   { animation-delay: 0ms; }
+  .delay-60  { animation-delay: 60ms; }
+  .delay-120 { animation-delay: 120ms; }
+  .delay-180 { animation-delay: 180ms; }
+  .delay-240 { animation-delay: 240ms; }
+  .delay-300 { animation-delay: 300ms; }
+}
